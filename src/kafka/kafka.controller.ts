@@ -11,11 +11,11 @@ export class KafkaController {
          *  Optionally, subscribe to producer events and errors
          */
         this.kafkaService.producerEvents.subscribe((event) => {
-            logger.log('Producer Event', JSON.stringify(event));
+            this.logger.log('Producer Event', JSON.stringify(event));
         });
 
         this.kafkaService.producerErrors.subscribe((error) => {
-            logger.error('Producer Error', JSON.stringify(error));
+            this.logger.error('Producer Error', JSON.stringify(error));
         });
     }
 
