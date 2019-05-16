@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { KafkaClient, Producer } from 'kafka-node';
 import { Subject } from 'rxjs';
 
@@ -12,7 +12,7 @@ export class KafkaService {
     public producerEvents = new Subject<any>();
     public producerErrors = new Subject<any>();
 
-    constructor(private logger: Logger) {
+    constructor() {
         // Create a client ... aka connection to kafak host
         this.client = new KafkaClient({ kafkaHost: 'localhost:9092' });
         // Initialize the producer
